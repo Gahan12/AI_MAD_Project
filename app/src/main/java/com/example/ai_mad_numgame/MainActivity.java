@@ -72,9 +72,48 @@ public class MainActivity extends AppCompatActivity {
     public void newMatch() {  //A game is composed of three matches
 
         int operand1 = random.nextInt(10);
-        int operand2=0;
-        //check is operand2 is not zero; otherwise in case of division-divide by zero error will come
+        int operand2= random.nextInt(50);
+        correctButton= random.nextInt(4);
+        int current_answer = -100;
         String operator = operators[random.nextInt(4)];
+        if(operator.equals("+"))
+            current_answer=operand1+operand2;
+        else if(operator.equals("-"))
+            current_answer=operand1-operand2;
+        else if(operator.equals("*"))
+            current_answer=operand1*operand2;
+        else if(operator.equals("/"))
+            current_answer=operand1/operand2;
+        if(correctButton==0)
+        {
+            button1.setText(current_answer + " ");
+            button2.setText(current_answer + 1 + " ");
+            button3.setText(current_answer - 1 + " ");
+            button4.setText(current_answer + 2 + " ");
+        }
+        else if(correctButton==1)
+        {
+            button1.setText(current_answer + 1 +" ");
+            button2.setText(current_answer - 1 + " ");
+            button3.setText(current_answer + 2 + " ");
+            button4.setText(current_answer + " ");
+        }
+        else if(correctButton==2)
+        {
+            button1.setText(current_answer - 1 + " ");
+            button2.setText(current_answer + 2 + " ");
+            button3.setText(current_answer + " ");
+            button4.setText(current_answer + 1 + " ");
+        }
+        else if(correctButton==3)
+        {
+            button1.setText(current_answer + 2 + " ");
+            button2.setText(current_answer + " ");
+            button3.setText(current_answer + 1 + " ");
+            button4.setText(current_answer - 1 + " ");
+        }
+        //check is operand2 is not zero; otherwise in case of division-divide by zero error will come
+
         textView2.setText(operand1 + operator + operand2);
 
       // Your code here, to diplay correct and incorrect options on the buttons
